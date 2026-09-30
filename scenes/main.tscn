@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bgh466816sih8"]
+
+[ext_resource type="Texture2D" uid="uid://5we52i4ahdvf" path="res://assets/BACKGROUND.png" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://bim1jewm7qkho" path="res://scripts/Main.cs" id="1_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://bihgaj8si7dkd" path="res://scenes/Fighter.tscn" id="2_sugp2"]
+[ext_resource type="PackedScene" uid="uid://b4f8ye12rpylv" path="res://scenes/Fighter_2.tscn" id="3_sugp2"]
+[ext_resource type="Script" uid="uid://dqs1rhvjh38vh" path="res://scripts/Fighter2.cs" id="4_jyhfs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_063yx"]
+size = Vector2(1163, 78)
+
+[node name="MAIN" type="Node2D" unique_id=424469738]
+script = ExtResource("1_tbgi4")
+
+[node name="Background" type="TextureRect" parent="." unique_id=213592998]
+texture_filter = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 2.0
+offset_right = 1154.0
+offset_bottom = 648.0
+grow_horizontal = 2
+texture = ExtResource("1_0wfyh")
+
+[node name="Fighter1" parent="." unique_id=1348255673 instance=ExtResource("2_sugp2")]
+position = Vector2(143, 490)
+
+[node name="Fighter2" parent="." unique_id=1568134162 instance=ExtResource("3_sugp2")]
+position = Vector2(975, 502)
+script = ExtResource("4_jyhfs")
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=66874188]
+position = Vector2(569, 603)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1849034312]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_063yx")
